@@ -1,24 +1,29 @@
-CREATE TABLE genero (
- nome_genero VARCHAR(30) NOT NULL,
+create database IF NOT exists musictube;
+
+use  musictube;
+
+
+CREATE TABLE if not exists genero (
+ nome_genero VARCHAR(30) NOT NULL primary key,
  icone VARCHAR(50),
  cor VARCHAR(10)
 );
 
-ALTER TABLE genero ADD CONSTRAINT PK_genero PRIMARY KEY (nome_genero);
 
 
-CREATE TABLE musica (
- código INT NOT NULL,
+
+CREATE TABLE if not exists musica (
+ cÃ³digo INT NOT NULL primary key auto_increment,
  cantor VARCHAR(50),
- duracao TIME(10),
+ duracao TIME,
  nome VARCHAR(50),
  url_imagem VARCHAR(200),
- nome_genero VARCHAR(30)
-);
+ nome_genero VARCHAR(30),
+ constraint fk_musica_genero foreign key (nome_genero) references genero (nome_genero)
+ );
 
-ALTER TABLE musica ADD CONSTRAINT PK_musica PRIMARY KEY (código);
 
 
-ALTER TABLE musica ADD CONSTRAINT FK_musica_0 FOREIGN KEY (nome_genero) REFERENCES genero (nome_genero);
+
 
 
