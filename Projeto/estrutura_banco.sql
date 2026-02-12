@@ -1,29 +1,36 @@
-create database IF NOT exists musictube;
-
-use  musictube;
-
-
-CREATE TABLE if not exists genero (
- nome_genero VARCHAR(30) NOT NULL primary key,
- icone VARCHAR(50),
- cor VARCHAR(10)
-);
-
-
-
-
-CREATE TABLE if not exists musica (
- código INT NOT NULL primary key auto_increment,
- cantor VARCHAR(50),
- duracao TIME,
- nome VARCHAR(50),
- url_imagem VARCHAR(200),
- nome_genero VARCHAR(30),
- constraint fk_musica_genero foreign key (nome_genero) references genero (nome_genero)
- );
+INSERT INTO `musictube`.`genero`
+(`nome_genero`,
+`icone`,
+`cor`)
+VALUES
+("Metal Gótico",
+"",
+"green"),
+("K-pop",
+"",
+"purple"),
+("MPB",
+"",
+"orange");
 
 
 
 
 
-
+INSERT INTO `musictube`.`musica`
+(`cantor`,
+`duracao`,
+`nome`,
+`url_imagem`,
+`nome_genero`)
+VALUES
+("Type O Negative",
+"05:30",
+"Be My Druidess",
+"https://d2q9lgeqx691v0.cloudfront.net/content/2018/02/Type-O-Negative-13.jpg",
+"Metal Gótico"),
+("AESPA",
+"03:50",
+"Black Mamba",
+"https://i0.wp.com/popasiaticojpg.com/wp-content/uploads/2024/06/aespa-armageddon-the-1st-album.png?fit=810%2C400&ssl=1",
+"K-pop");
