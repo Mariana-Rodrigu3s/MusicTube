@@ -19,14 +19,18 @@ def pagina_principal():
 
 
 
-    cursor.execute("SELECT docigo, cantor, duracao, nome, url_imagem, nome_genero FROM musica;")
+    cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero FROM musica;")
 
     musicas = cursor.fetchall()
+
+    cursor.execute("SELECT nome, icone, cor FROM genero;")
+
+    generos = cursor.fetchall
 
     conexao.close()
 
 
-    return render_template("principal.html", musicas = musicas)
+    return render_template("principal.html", musicas = musicas, generos = generos)
 
 @app.route("/administracao")
 def pagina_admin():
