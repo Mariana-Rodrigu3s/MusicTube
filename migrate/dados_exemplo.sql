@@ -1,6 +1,6 @@
 USE MusicTube;
 
-INSERT INTO `musictube`.`genero`
+INSERT INTO `MusicTube`.`genero`
 (`nome`,
 `icone`,
 `cor`)
@@ -10,7 +10,7 @@ VALUES
 ("Infantil", "","pink");
 
 
-INSERT INTO `musictube`.`musica`
+INSERT INTO `MusicTube`.`musica`
 (`cantor`,
 `duracao`,
 `nome`,

@@ -25,7 +25,7 @@ def pagina_principal():
 
     cursor.execute("SELECT nome, icone, cor FROM genero;")
 
-    generos = cursor.fetchall
+    generos = cursor.fetchall()
 
     conexao.close()
 
