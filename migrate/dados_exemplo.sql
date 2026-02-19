@@ -1,16 +1,16 @@
 USE MusicTube;
 
-INSERT INTO `MusicTube`.`genero`
+INSERT INTO `musictube`.`genero`
 (`nome`,
 `icone`,
 `cor`)
 VALUES
 ("Kpop", "","blue"),
 ("Metal Gótico", "","red"),
-("Infantil", "","pink");
+("Rap", "","pink");
 
 
-INSERT INTO `MusicTube`.`musica`
+INSERT INTO `musictube`.`musica`
 (`cantor`,
 `duracao`,
 `nome`,
@@ -27,8 +27,8 @@ VALUES
 "Love You to Death",
 "https://i.etsystatic.com/43716471/c/2000/1588/0/338/il/496d7d/5027685283/il_340x270.5027685283_fyhv.jpg",
 "Metal Gótico"),
-("PinkiePie",
+("Racionais",
 "03:23",
-"The Smile Song",
-"https://cdn.staticneo.com/w/mylittlepony/thumb/PinkiePie.png/300px-PinkiePie.png",
-"Infantil");
+"Jorge da Capadócia",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJvS22lpPdoP8jfyN3c2lF2QJIDHJeWjQ30B2QSsxnH0zs_HpLrx_B0NbcNtU6fpAsH5zLV5368fcej_tjBP0bYE-0snAMvxDdAj2Q_gSe9Q&s=10",
+"Rap");
