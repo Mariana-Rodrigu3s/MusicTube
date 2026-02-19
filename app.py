@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import mysql.connector
 from model.musica import recuperar_musicas
+from model.genero import recuperar_genero
 
 app = Flask(__name__)
 
@@ -13,7 +14,7 @@ def pagina_principal():
         port = 3306,
         user = "root",
         password = "root",
-        database = "musictube"
+        database = "MusicTube"
     )
 
     cursor = conexao.cursor(dictionary=True)
@@ -22,12 +23,8 @@ def pagina_principal():
 
     
 
-    cursor.execute("SELECT nome, icone, cor FROM genero;")
-
-    generos = cursor.fetchall()
-
-    conexao.close()
-
+    generos = recuperar_genero()
+         
     musicas = recuperar_musicas()
 
 
@@ -35,7 +32,9 @@ def pagina_principal():
 
 @app.route("/administracao")
 def pagina_admin():
-    return render_template("administracao.html")
+    musicas = recuperar_musicas()
+    generos = recuperar_genero()
+    return render_template("administracao.html", musicas = musicas, generos = generos)
 
 
 
