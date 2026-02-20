@@ -1,7 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, request
 import mysql.connector
-from model.musica import recuperar_musicas
+from model.musica import adicionar_musica, recuperar_musicas
 from model.genero import recuperar_genero
+from 
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ def pagina_principal():
         port = 3306,
         user = "root",
         password = "root",
-        database = "MusicTube"
+        database = "LunaWave"
     )
 
     cursor = conexao.cursor(dictionary=True)
@@ -37,6 +38,17 @@ def pagina_admin():
     return render_template("administracao.html", musicas = musicas, generos = generos)
 
 
+@app.route("/musica/post", methods=["POST"])
+def api_inserir_musica():
+    nome_musica = request.form.get("inpute")
+    cantor =
+    duracao =
+    genero =
+
+    if adicionar_musica(cantor, nome, musica):
+        return redirect("/administracao")
+    else:
+        return "Erro ao adicionar música"
 
 
 if __name__ == "__main__":

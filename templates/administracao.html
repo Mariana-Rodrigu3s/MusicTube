@@ -58,7 +58,7 @@
                         <div class="field">
                             <label class="label is-small">Título da Música</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="Ex: Starboy">
+                                <input class="input" name="inpute" type="text" placeholder="Ex: Starboy">
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                     <select>
                                         {%for genero in generos %}
                                         
-                                        <option>{{genero.nome}}</option>
+                                        <option value ="{{genero.nome}}"></option>
                                     
                                         {% endfor %}
                                     </select>
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="button is-link is-fullwidth mt-4" style="background-color: #3A0CA3;">
+                <button type="submit" class="button is-link is-fullwidth mt-4" style="background-color: #3A0CA3;">
                     <strong><i class="fa-solid fa-save mr-2"></i> Salvar Música</strong>
                 </button>
             </form>

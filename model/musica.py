@@ -34,6 +34,7 @@ def adicionar_musica(cantor:str, nome_musica:str, duracao:str, imagem_url:str, g
 
         return True
     
-    except:
+    except Exception as e:
+        print(e)
         return False
 
