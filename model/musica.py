@@ -25,7 +25,8 @@ def adicionar_musica(cantor:str, nome_musica:str, duracao:str, imagem_url:str, g
                    VALUES
                    (%s, %s, %s, %s, %s)
 """,
-[cantor, nome_musica, duracao, imagem_url, genero])
+[cantor, nome_musica, duracao, imagem_url, genero]
+)
     
     conexao.commit()
 
