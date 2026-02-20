@@ -16,18 +16,24 @@ def adicionar_musica(cantor:str, nome_musica:str, duracao:str, imagem_url:str, g
     """
     Essa função é para facilitar a aplicação as musicas para o usuário 
     """
+    try:
+        conexao, cursor = conectar()
 
-    conexao, cursor = conectar()
+        cursor.execute("""
+                            INSERT INTO musica
+                    (cantor, nome, duracao, url_imagem, nome_genero)
+                    VALUES
+                    (%s, %s, %s, %s, %s)
+    """,
+    [cantor, nome_musica, duracao, imagem_url, genero]
+    )
+        
+        conexao.commit()
 
-    cursor.execute("""
-                        INSERT INTO musica
-                   (cantor, nome, duracao, url_imagem, nome_genero)
-                   VALUES
-                   (%s, %s, %s, %s, %s)
-""",
-[cantor, nome_musica, duracao, imagem_url, genero]
-)
+        conexao.close()
+
+        return True
     
-    conexao.commit()
+    except:
+        return False
 
-    conexao.close()
