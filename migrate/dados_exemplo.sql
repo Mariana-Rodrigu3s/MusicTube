@@ -1,6 +1,6 @@
-USE MusicTube;
+USE LunaWave;
 
-INSERT INTO `musictube`.`genero`
+INSERT INTO `LunaWave`.`genero`
 (`nome`,
 `icone`,
 `cor`)
@@ -9,14 +9,9 @@ VALUES
 ("Metal Gótico", "","red"),
 ("Rap", "","red");
 
-INSERT INTO `musictube`.`genero`
-(`nome`,
-`icone`,
-`cor`)
-VALUES
-("Infantil", "","pink");
 
-INSERT INTO `musictube`.`musica`
+
+INSERT INTO `LunaWave`.`musica`
 (`cantor`,
 `duracao`,
 `nome`,

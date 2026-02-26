@@ -1,6 +1,6 @@
 create database if not exists LunaWave;
 
-use MusicTube;
+use LunaWave;
 
 create table if not exists genero (
 nome varchar(30) not null primary key,
@@ -18,3 +18,8 @@ url_imagem varchar(255),
 nome_genero varchar(30),
 constraint fk_musica_genero foreign key (nome_genero) references genero(nome)
 );
+
+
+
+alter table musica
+add column ativo bool default 0;

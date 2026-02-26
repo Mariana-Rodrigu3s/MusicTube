@@ -10,7 +10,7 @@ def conectar():
                 port = 3306,
                 user = "root",
                 password = "root",
-                database = "musictube"
+                database = "LunaWave"
             )
 
         cursor = conexao.cursor(dictionary=True)

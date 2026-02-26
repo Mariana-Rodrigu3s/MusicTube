@@ -3,7 +3,7 @@ from database.conexao import conectar
 def recuperar_musicas():
     conexao, cursor = conectar()
 
-    cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero FROM musica;")
+    cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero, ativo FROM musica;")
 
     musicas = cursor.fetchall()
 
@@ -37,4 +37,61 @@ def adicionar_musica(cantor:str, nome_musica:str, duracao:str, imagem_url:str, g
     except Exception as e:
         print(e)
         return False
+    
+
+
+
+def excluir_musica(codigo):
+
+    try:
+
+        conexao, cursor = conectar()
+
+        cursor.execute( """
+                    DELETE FROM musica WHERE codigo= %s
+                
+                    
+    """,
+    [codigo])
+
+
+
+        conexao.commit()
+
+        conexao.close()
+
+        return True
+    
+    except:
+        return False
+    
+
+
+def atualizar_status(ativo, codigo):
+
+    try:
+
+        conexao, cursor = conectar()
+
+        cursor.execute("""
+
+                    UPDATE musica 
+                    SET ativo = %s
+                    WHERE codigo = %s
+
+""",
+[ativo, codigo])
+        
+        return True
+    
+    except:
+        return True
+
+
+
+
+
+
+
+
 
