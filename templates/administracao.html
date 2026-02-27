@@ -115,9 +115,9 @@
             <table class="table is-fullwidth">
                 <thead>
                     <tr>
-                    
+                        
                         <th class="has-text-centered">ID</th>
-                        <th>b</th>
+                        <th>Capa</th>
                         <th>Titulo/Cantor</th>
                         <th class="has-text-centered">Duração</th>
                         <th>Categoria</th>
@@ -125,10 +125,11 @@
                         <th class="has-text-right px-5">Ações</th>
                     </tr>
                 </thead>
+                {% for musica in musicas %}
                 <tbody>
-                    {% for musica in musicas %}
+                    
                     <tr>
-                        <td class="has-text-centered has-text-link is-family-monospace">1</td>
+                        <td class="has-text-centered has-text-link is-family-monospace">{{musica.codigo}}</td>
                         <td style="width: 80px;">
                             <figure class="image is-48x48">
                                 <img src="{{musica.url_imagem}}" class="is-rounded" style="object-fit: cover;">
@@ -168,8 +169,9 @@
                             </div>
                         </td>
                     </tr>
-                    {% endfor %}
+                    
                 </tbody>
+                {% endfor %}
             </table>
         </div>
     </div>

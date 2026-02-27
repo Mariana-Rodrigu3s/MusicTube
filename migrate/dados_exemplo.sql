@@ -7,7 +7,12 @@ INSERT INTO `LunaWave`.`genero`
 VALUES
 ("Kpop", "","blue"),
 ("Metal Gótico", "","red"),
-("Rap", "","red");
+("Rap", "","red"),
+("Pop", "", "orange"),
+("MPB", "", "Pink"),
+("Funk", "", "Purple"),
+("Eletronica", "", "Violet"),
+("Rock", "", "Brown");
 
 
 

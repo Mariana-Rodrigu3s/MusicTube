@@ -14,7 +14,7 @@ codigo int not null primary key auto_increment,
 cantor varchar(50),
 duracao time, 
 nome varchar(50),
-url_imagem varchar(255),
+url_imagem varchar(800),
 nome_genero varchar(30),
 constraint fk_musica_genero foreign key (nome_genero) references genero(nome)
 );

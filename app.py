@@ -25,7 +25,7 @@ def pagina_principal():
 
     generos = recuperar_genero()
          
-    musicas = recuperar_musicas()
+    musicas = recuperar_musicas(True)
 
 
     return render_template("principal.html", musicas = musicas, generos = generos)
@@ -45,7 +45,7 @@ def api_inserir_musica():
     genero = request.form.get("nome_genero")
     imagem = request.form.get("imagem_url")
 
-    if adicionar_musica(cantor, duracao, nome_musica, genero, imagem):
+    if adicionar_musica(cantor, nome_musica, duracao, imagem, genero):
         return redirect("/administracao")
     else:
         return "Erro ao adicionar música"
@@ -60,6 +60,9 @@ def deletar_musica(codigo):
 def ativo_musica(codigo, ativo):
     atualizar_status(codigo, ativo)
     return redirect("/administracao")
+
+
+@app.route()
 
 
 

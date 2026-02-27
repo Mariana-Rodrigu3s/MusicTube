@@ -1,10 +1,13 @@
 from database.conexao import conectar
 
-def recuperar_musicas():
+def recuperar_musicas(ativos:bool=False):
     conexao, cursor = conectar()
 
-    cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero, ativo FROM musica;")
-
+    if ativos == False:
+        cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero, ativo FROM musica;")
+    
+    else:
+        cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero, ativo FROM musica WHERE ativo = 1;")
     musicas = cursor.fetchall()
 
     conexao.close()
@@ -86,12 +89,4 @@ def atualizar_status(ativo, codigo):
     
     except:
         return True
-
-
-
-
-
-
-
-
 
