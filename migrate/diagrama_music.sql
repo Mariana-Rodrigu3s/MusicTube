@@ -19,6 +19,12 @@ nome_genero varchar(30),
 constraint fk_musica_genero foreign key (nome_genero) references genero(nome)
 );
 
+create table if not exists cadastro(
+id int not null primary key auto_increment,
+usuario varchar(50) unique, 
+senha varchar(100) not null
+);
+
 
 
 alter table musica
