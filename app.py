@@ -3,6 +3,7 @@ import mysql.connector
 from model.musica import adicionar_musica, atualizar_status, recuperar_musicas, excluir_musica
 from model.genero import recuperar_genero
 from model.cadastrar import cadastrar
+from model.usuario_model import autenticar_usuario
 
 app = Flask(__name__)
 
@@ -85,6 +86,22 @@ def inserir_cadastro():
 @app.route ("/login")
 def inserir_login():
     return render_template("login.html")
+
+@app.route("/login/post", methods=["POST"])
+def verificar_login():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+
+    usuario = autenticar_usuario(usuario, senha)
+
+    if usuario:
+        return redirect("/administracao")
+    
+    else:
+        return redirect("/login")
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,16 +1,23 @@
 from database.conexao import conectar
 
-def autenticar_usuario(usuario:str, senha:str):
+def autenticar_usuario(usuario:str, senha:str) -> list:
     
 
 
-    try:
         conexao, cursor = conectar()
 
         cursor.execute("""
-                SELECT * FROM cadastro WHERE login = %s AND senha = %s
+                SELECT usuario, senha FROM cadastro WHERE usuario = %s AND senha = %s
 
-""")
+        """, [usuario, senha])
+        
+        usuario = cursor.fetchone()
+
+        conexao.commit()
+        conexao.close()
+
+
+        return usuario
         
 
     
